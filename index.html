@@ -37,14 +37,26 @@
           <option value="2015" >2015</option>
           <option value="2016" >2016</option>
         </select>
+        <br>
+        <select id="crimeType">
+          <option value="violent_crime">Violent Crime</option>
+          <option value="homicide">Homicide</option>
+          <option value="rape_legacy">Rape</option>
+          <option value="robbery">Robbery</option>
+          <option value="aggravated_assault">Aggravated Assault</option>
+          <option value="property_crime">Property Crime</option>
+          <option value="burglary">Burglary</option>
+          <option value="larceny">Larceny</option>
+          <option value="motor_vehicle_theft">Grand Theft Auto</option>
+        </select>
         <button class="btn-success" id="fbi-oregon">Get Current Crime! (jk, its old)</button>
       </form>
       <div class="errors"></div>
       <div class="showYear"></div>
       <div class="showState"></div>
-      <div class="showViolent"></div>
       <div class="showPop"></div>
-      <div class="showHom"></div>
+      <h2><div class="crime"></div></h2>
+
     </div>
   </body>
 </html>

@@ -3,7 +3,7 @@ export class Fbi {
 
   }
 
-  callApi(yearToFind){
+  callApi(yearToFind, crimeToFind){
     $.ajax({
       url: `https://api.usa.gov/crime/fbi/ucr/estimates/states/OR?page=1&per_page=10&output=json&api_key=iiHnOKfno2Mgkt5AynpvPpUQTEyxE77jo1RU8PIv`,
       type: 'GET',
@@ -17,9 +17,34 @@ export class Fbi {
           if(thisYear === yearToFind){
             $('.showYear').text(`Year: ${response.results[i].year}`);
             $('.showState').text(`State:   ${response.results[i].state_abbr}.`);
-            $('.showViolent').text(`Violent crime:  ${response.results[i].violent_crime}.`);
             $('.showPop').text(`Population:  ${response.results[i].population}.`);
-            $('.showHom').text(`Homicides:  ${response.results[i].homicide}.`);
+            if(crimeToFind === "homicide"){
+              $('.crime').text(`Homicides: ${response.results[i].homicide}`);
+            }
+            if(crimeToFind === "violent_crime"){
+              $('.crime').text(`Violent Crimes: ${response.results[i].violent_crime}`);
+            }
+            if(crimeToFind === "rape_legacy"){
+              $('.crime').text(`Rapes: ${response.results[i].rape_legacy}`);
+            }
+            if(crimeToFind === "robbery"){
+              $('.crime').text(`Robberies: ${response.results[i].robbery}`);
+            }
+            if(crimeToFind === "aggravated_assault"){
+              $('.crime').text(`Aggravated Assaults: ${response.results[i].aggravated_assault}`);
+            }
+            if(crimeToFind === "property_crime"){
+              $('.crime').text(`Property Crimes: ${response.results[i].property_crime}`);
+            }
+            if(crimeToFind === "burglary"){
+              $('.crime').text(`Burglaries: ${response.results[i].burglary}`);
+            }
+            if(crimeToFind === "larceny"){
+              $('.crime').text(`Larcenies: ${response.results[i].larceny}`);
+            }
+            if(crimeToFind === "motor_vehicle_theft"){
+              $('.crime').text(`Grand Theft Autos: ${response.results[i].motor_vehicle_theft}`);
+            }
             return true;
           }
         }
