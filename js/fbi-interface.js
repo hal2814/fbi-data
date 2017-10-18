@@ -5,7 +5,6 @@ $(document).ready(function() {
     event.preventDefault();
     let fbi = new Fbi();
     let year = parseInt($('#year').val());
-    debugger;
     fbi.callApi(year);
   });
 });
