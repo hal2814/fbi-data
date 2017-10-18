@@ -54,16 +54,6 @@ gulp.task('clean', function(){
   return del(['build', 'tmp']);
 });
 
-// gulp.task("build", ['clean'], function(){
-//   if (buildProduction) {
-//     gulp.start('minifyScripts');
-//   } else {
-//     gulp.start('jsBrowserify');
-//   }
-//   gulp.start('bower');
-//   gulp.start('cssBuild');
-// });
-
 gulp.task('jsBower', function () {
   return gulp.src(lib.ext('js').files)
     .pipe(concat('vendor.min.js'))

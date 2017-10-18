@@ -1,7 +1,7 @@
 {
-  "name": "galactic-calculator",
+  "name": "fbi-data",
   "version": "1.0.0",
-  "description": "determines a person's age based on a planet's solar year",
+  "description": "returns Oregon crime statistics",
   "main": "gulpfile.js",
   "scripts": {
     "test": "karma start karma.conf.js"
@@ -18,7 +18,7 @@
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
     "gulp-jshint": "^2.0.4",
-    "gulp-sass": "^2.2.0",
+    "gulp-sass": "^2.3.2",
     "gulp-uglify": "^3.0.0",
     "gulp-util": "^3.0.8",
     "jasmine": "^2.8.0",
@@ -36,5 +36,7 @@
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.9.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "gulp-sourcemaps": "^2.6.1"
+  }
 }
