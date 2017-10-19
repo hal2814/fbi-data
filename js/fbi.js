@@ -103,7 +103,7 @@ export class Fbi {
     promise.then(function(response) {
       let body = JSON.parse(response);
       let thisYear;
-      let crimeArray =[['Year', 'Crime', 'Population']];
+      let crimeArray = [['Year', 'Crime', 'Population']];
       for(let i = 0; i< 22;++i){
         thisYear = body.results[i].year;
         crimeArray.push([]);
@@ -137,6 +137,22 @@ export class Fbi {
         }
         crimeArray[i+1].push(body.results[i].population);
       }
+      // $('.crimearr').text(crimeArray);
+      //google.charts.load('current', {'packages':['corechart']});
+      // google.charts.setOnLoadCallback(drawChart);
+      debugger;
+        let data = google.visualization.arrayToDataTable(crimeArray);
+
+        let options = {
+          title: 'Company Performance',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        let chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+
       return crimeArray;
     },function(error) {
       $('.showErrors').text(`There was an error processing your request: ${error.message}`);

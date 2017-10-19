@@ -1,6 +1,7 @@
 import { Fbi } from './../js/fbi.js';
-
+ google.charts.load('current', {'packages':['corechart']});
 $(document).ready(function() {
+
   $('#fbi-oregon').submit(function(event) {
     event.preventDefault();
     let fbi = new Fbi();
@@ -16,11 +17,10 @@ $(document).ready(function() {
         } else {
           reject(Error(request.statusText));
         }
-      }
+      };
       request.open("GET", url, true);
       request.send();
     });
-    debugger;
     let crimeArr = fbi.arrayOfCrime(promise,year,crime);
     // fbi.callApi(promise,year,crime);
   });
