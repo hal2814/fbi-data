@@ -21,7 +21,8 @@ $(document).ready(function() {
       request.open("GET", url, true);
       request.send();
     });
-    let crimeArr = fbi.arrayOfCrime(promise,year,crime);
-    // fbi.callApi(promise,year,crime);
+    fbi.arrayOfCrime(promise,year,crime);
+
+    fbi.callApi(promise,year,crime);
   });
 });

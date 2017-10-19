@@ -103,9 +103,9 @@ export class Fbi {
     promise.then(function(response) {
       let body = JSON.parse(response);
       let thisYear;
-      let crimeArray = [['Year', 'Crime', 'Population']];
+      let crimeArray = [['Year', crimeToFind, 'Population *1000']];
       for(let i = 0; i< 22;++i){
-        thisYear = body.results[i].year;
+        thisYear = (body.results[i].year).toString();
         crimeArray.push([]);
         crimeArray[i+1].push(thisYear);
         if(crimeToFind === "homicide"){
@@ -135,7 +135,7 @@ export class Fbi {
         else if(crimeToFind === "motor_vehicle_theft"){
           crimeArray[i+1].push(body.results[i].motor_vehicle_theft);
         }
-        crimeArray[i+1].push(body.results[i].population);
+        crimeArray[i+1].push((body.results[i].population)/1000);
       }
       // $('.crimearr').text(crimeArray);
       //google.charts.load('current', {'packages':['corechart']});
@@ -144,7 +144,7 @@ export class Fbi {
         let data = google.visualization.arrayToDataTable(crimeArray);
 
         let options = {
-          title: 'Company Performance',
+          title: crimeToFind + ' by year',
           curveType: 'function',
           legend: { position: 'bottom' }
         };
